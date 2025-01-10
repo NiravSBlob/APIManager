@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 import SystemConfiguration
 
-typealias CompletionResponse<R:Codable> = (Bool,Codable?,Any) -> ()
-class URLSessionRequestManager {
+public typealias CompletionResponse<R:Codable> = (Bool,Codable?,Any) -> ()
+public class URLSessionRequestManager {
     
     static func BEARER_HEADER() -> [String:String]{
         return APIEnvironment.headers
     }
     
-    class func makeGetRequest<C:Codable>(urlString: String, requestModel: String? = nil,responseModel: C.Type, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()) {
+    public class func makeGetRequest<C:Codable>(urlString: String, requestModel: String? = nil,responseModel: C.Type, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()) {
         
         if !Reachability.isConnectedToNetwork() {
             completion(false, nil, NoInternetResponseDic)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CodableService: NSObject {
+public class CodableService: NSObject {
     
     static let shared = CodableService()
     private let certificates: [Data] = {
@@ -98,7 +98,7 @@ class CodableService: NSObject {
 
 extension CodableService : URLSessionDelegate {
     // Implement URLSessionDelegate methods as needed
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
            if let trust = challenge.protectionSpace.serverTrust,
               SecTrustGetCertificateCount(trust) > 0 {

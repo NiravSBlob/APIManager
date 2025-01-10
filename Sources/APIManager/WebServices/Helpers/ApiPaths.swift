@@ -26,11 +26,11 @@ enum APIEnvironment : String {
     {
         var headers: [String:String]
         headers = [:]
-        if defaults.object(forKey: kAuthToken) != nil {
-            headers = [
-                "Authorization": "\(defaults.object(forKey: kAuthToken) as! String)"
-            ]
-        }
+//        if defaults.object(forKey: kAuthToken) != nil {
+//            headers = [
+//                "Authorization": "\(defaults.object(forKey: kAuthToken) as! String)"
+//            ]
+//        }
         return headers
     }
 }
@@ -46,23 +46,5 @@ enum RequestString : String{
     case contentType = "Content-Type"
 }
 
-enum ApiKey: String
-{ //AUTHENTICATION
-    case LOGIN = "auth/login"
-    case LOGOUT = "auth/logout"
-    case REGISTER = "auth/signup"
-    case FORGOT_PASSWORD = "auth/forgotPassword"
-    case VERIFY_OTP = "auth/verifyOTP"
-    case CHANGE_PASSWORD = "auth/changePassword"
-    case LOGIN_OTP = "auth/verifyLoginOTP"
-    //USERS
-    case UPDATE_USER_LIMIT = "users/update"
-    case UPDATE_USER = "users/updateUser"
-    case SUBSCRIBED_USER = "users/subscibedUser"
-    case USER_PROFILE = "users/getUserProfile"
-    //SERVERS
-    case SERVER_LIST = "servers/getServerList"
-    case LAST_SERVER_CONNECT = "servers/lastServerConnect"
-}
 
 
